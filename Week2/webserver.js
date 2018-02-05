@@ -1,27 +1,42 @@
 var express = require('express')
 var app = express()
 
-app.use(express.statistic('public'));
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: true }); // for parsing form data
+app.use(urlencodedParser);
+
+app.use(express.static('public'));//you need to make a folder
 
 app.get('/', function (req, res) {
   res.send('Hello World!')
+  console.log('new visitor!!!!!')
 })
 
-var count = 0;
+// //////////////Dynamic//////////////////
 
-app.get('/somethingelse', function (req, res) {
-  res.send('<html><body><h1>Something Else' + count + '</h1></body></html>');
+app.post('/yourform', function(req, res) {
+    var textvalue = req.body.textfield;
+    res.send("You submitted: " + textvalue);
 });
 
-app.get('/formpost', function (req, res) {
-  console.log("They submitted:" + req.query.textfield);
-  res.send("They submitted:" + req.query.textfield);
+app.get('/yourform', function (req, res) {//name anything you want(it doesnt have to be a file name)
+	var fileToSend = "/form.html";
+	res.sendfile(fileToSend, {root: './'});
+  console.log("They submitted:" + req.query.textfield) // Files inside "public" folder
+});
+
+
+app.get('/somethingelse', function (req, res) {
+  res.send('Hello Mars');
+  console.log('new friend!!!!!')
 });
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
 })
 
-//pretend that i changes things
-//http://IP:3000/
-//Of course a route can be for any "path", here is an example for "/somethingelse":
+// app.listen(8080, function () {
+//   console.log('Example app listening on port 8080!')
+// })
+// http://IP:3000/
+// Of course a route can be for any "path", here is an example for "/somethingelse":
