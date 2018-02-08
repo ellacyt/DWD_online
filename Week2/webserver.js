@@ -20,12 +20,18 @@ app.get('/somethingelse', function (req, res) {
 app.post('/yourform', function(req, res) {
     var textvalue = req.body.textfield;
 
-    if(textvalue > 8 || textvalue < 8) {
+    if(textvalue > 1970 || textvalue < 1970) {
     res.send(" Try again!");
   } else {
-    res.send("You guess right! The answer is " + textvalue )
+    res.send("You guess right! The answer is " + textvalue)
   }
 
+  //   if(textvalue > 8 || textvalue < 8) {
+  //   res.send(" Try again!");
+  // } else {
+  //   res.send("You guess right! The answer is " + textvalue )
+  // }
+  //
     // res.send("You submitted: " + textvalue);
     console.log("They submitted: " + textvalue);
 });
