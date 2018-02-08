@@ -17,19 +17,20 @@ app.get('/', function (req, res) {
 app.post('/yourform', function(req, res) {
     var textvalue = req.body.textfield;
     res.send("You submitted: " + textvalue);
+    console.log("They submitted: " + textvalue);
 });
 
-app.get('/yourform', function (req, res) {//name anything you want(it doesnt have to be a file name)
-	var fileToSend = "/form.html";
-	res.sendfile(fileToSend, {root: './'});
-  console.log("They submitted:" + req.query.textfield) // Files inside "public" folder
-});
+// app.get('/yourform', function (req, res) {//name anything you want(it doesnt have to be a file name)
+// 	var fileToSend = "/form.html";
+// 	res.sendfile(fileToSend, {root: './'});
+//   console.log("They submitted:" + req.query.textfield) // Files inside "public" folder
+// });
 
 
-app.get('/somethingelse', function (req, res) {
-  res.send('Hello Mars');
-  console.log('new friend!!!!!')
-});
+// app.get('/somethingelse', function (req, res) {
+//   res.send('Hello Mars');
+//   console.log('new friend!!!!!')
+// });
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
