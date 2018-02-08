@@ -5,25 +5,31 @@ var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: true }); // for parsing form data
 app.use(urlencodedParser);
 
+
+//////////////////Static//////////////////////
 app.use(express.static('public'));//you need to make a folder
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-  console.log('new visitor!!!!!')
-})
+// //////////////Dynamic//////////////////
 
 app.get('/somethingelse', function (req, res) {
   res.send('Hello Mars');
   console.log('new friend!!!!!')
 });
 
-// //////////////Dynamic//////////////////
 
 app.post('/yourform', function(req, res) {
     var textvalue = req.body.textfield;
-    res.send("You submitted: " + textvalue);
+
+    if(textvalue > 8 || textvalue < 8) {
+    res.send(" Try again!");
+  } else {
+    res.send("You guess right! The answer is " + textvalue )
+  }
+
+    // res.send("You submitted: " + textvalue);
     console.log("They submitted: " + textvalue);
 });
+
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
