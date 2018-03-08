@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Main</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+
+  <!-- JQUERY -->
+        <script type="text/javascript">
+
+        $(document).ready(function(){
+          $('#getweather').ready(function() {
+
+            $.ajax({
+              url: "http://api.openweathermap.org/data/2.5/weather?q=New%20York&appid=9dedac80c1b59348c90ae45108f1f953&units=metric",
+              data:{},
+              success: function(result){
+                $('#result1').html("The Temperature in NYC is: " + result.main.temp + "°C")
+                 $('#result2').html("The humidity in NYC is: " + result.main.humidity + "%")
+
+                if(result.main.temp > -1 && result.main.temp < 2){
+                  $("#frame").attr("src", "https://open.spotify.com/embed?uri=spotify:user:myplay.com:playlist:" + "1eiyaQTRfcYowVFcyvmrQh");
+                   $('body').css({"background":"linear-gradient(to bottom,rgba(0,0,0,0.5)100%,rgba(0,0,0,0)0%), url(https://images.unsplash.com/photo-1427955569621-3e494de2b1d2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=54078fb00185b26eea7707139e3c5de1&auto=format&fit=crop&w=2000&q=80) no-repeat center center fixed"});
+                 };
+                 if(result.main.temp > 2 && result.main.temp < 10){
+                   $("#frame").attr("src", "https://open.spotify.com/embed/user/spotify/playlist/37i9dQZF1DXc5e2bJhV6pu");
+                    $('body').css({"background":"linear-gradient(to bottom,rgba(0,0,0,0.5)100%,rgba(0,0,0,0)0%), url(https://images.unsplash.com/photo-1418075285575-c402f1f7340f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3ce07cf602251b0636efbf01bd723775&auto=format&fit=crop&w=2000&q=80) no-repeat center center fixed"});
+                  };
+                  if(result.main.temp > 10 && result.main.temp < 20){
+                    $("#frame").attr("src", "https://open.spotify.com/embed/user/spotify/playlist/37i9dQZF1DXc5e2bJhV6pu");
+                     $('body').css({"background":"linear-gradient(to bottom,rgba(0,0,0,0.5)100%,rgba(0,0,0,0)0%), url(https://images.unsplash.com/photo-1456615074700-1dc12aa7364d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bee8c3ec01db125b13a362bab679c860&auto=format&fit=crop&w=2000&q=80) no-repeat center center fixed"});
+                   };
+                   if(result.main.temp > 20 && result.main.temp < 30){
+                     $("#frame").attr("src", "https://open.spotify.com/embed/user/spotify/playlist/37i9dQZF1DWYBO1MoTDhZI");
+                      $('body').css({"background":"linear-gradient(to bottom,rgba(0,0,0,0.5)100%,rgba(0,0,0,0)0%), url(https://images.unsplash.com/photo-1456615074700-1dc12aa7364d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bee8c3ec01db125b13a362bab679c860&auto=format&fit=crop&w=2000&q=80) no-repeat center center fixed"});
+                    };
+              },
+              error: function(err) {
+                alert("error");
+              }
+            });
+          });
+        }
+      );
+
+      $(document).ready(
+          function(){
+              $('#button').click(
+                  function(){
+                      var toAdd = $('input[name=ListItem]').val();
+                       $('ol').append('<li>' + toAdd + '</li>');
+                  });
+
+             $("input[name=ListItem]").keyup(function(event){
+                if(event.keyCode == 13){
+                  $("#button").click();
+                }
+            });
+
+            $(document).on('dblclick','li', function(){
+              $(this).toggleClass('strike').fadeOut('slow');
+            });
+
+            $('input').focus(function() {
+              $(this).val('');
+            });
+
+            $('ol').sortable();
+
+          }
+      );
+
+
+
+    </script>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h1>Good Morning</h1>
+      <p>Check out the weather for today!</p>
+      <button id="getweather">Get Weather</button>
+      <br><br>
+      <div id="result1"></div>
+      <div id="result2"></div>
+    </div>
+    <div class="col-sm-4">
+      <h3>To-do list</h3>
+      <hr>
+      <p>Click and drag to reorder, double click to delete</p>
+       <form name="toDoList">
+			 <input type="text" name="ListItem"/>
+       </form>
+
+       <button id="button">Add</button>
+       <br/>
+       <ol></ol>
+    </div>
+    <div class="col-sm-4">
+      <h3>Playlist</h3>
+      <hr>
+      <div id="mydiv">
+      <iframe id="frame" src="" width="360" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media">
+      </iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

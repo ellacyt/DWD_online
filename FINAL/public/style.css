@@ -1,0 +1,68 @@
+
+body{
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+  color: white;
+  font-family: "Raleway", sans-serif;
+  height: 100%
+}
+
+h1 {
+    color: white;
+    font-family: "Raleway", sans-serif;
+    font-size: 300%;
+}
+
+h3 {
+    color: white;
+    font-family: "Raleway", sans-serif;
+    font-size: 180%;
+    font-weight: bold;
+}
+
+h3 {
+    color: white;
+    font-family: "Raleway", sans-serif;
+    font-size: 180%;
+}
+
+p  {
+    color: white;
+    font-family: "Raleway", sans-serif;
+    font-size: 14px;
+}
+
+button{
+  color: black;
+  font-family: "Raleway", sans-serif;
+  font-size: 100%;
+}
+
+button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 13px;
+  padding: 7px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 2px;
+}
+
+form {
+display: inline-block;
+  padding: 10px;
+}
+
+input{
+color: #000000;
+padding: 4px 15px 4px 5px;
+}
+
+</style>

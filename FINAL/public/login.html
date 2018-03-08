@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    //$('#username').focus();
+
+    $('#submit').click(function() {
+
+      event.preventDefault(); // prevent PageReLoad
+
+       var ValidEmail = $('#username').val() === 'itp'; // User validate
+       var ValidPassword = $('#password').val() === 'itp'; // Password validate
+
+        if (ValidEmail === true && ValidPassword === true) { // if ValidEmail & ValidPassword
+            $('.valid').css('display', 'block');
+            window.location = "index.html"; // go to home.html
+        }
+        else {
+            $('.error').css('display', 'block'); // show error msg
+        }
+    });
+});
+</script>
+</head>
+
+<body>
+  <!--Correct username: itp / pass: itp-->
+
+    <h2>Sign In</h2>
+    <p class="valid">Valid. Please wait a moment.</p>
+    <p class="error">Error. Please enter correct Username &amp; password.</p>
+    <form class="loginbox" autocomplete="off">
+      <input placeholder="Username" type="text" id="username"></input>
+      <input placeholder="Password" type="password" id="password"></input>
+  <button id="submit">Login</button>
+  </form>
+
+</body>
+</html>
