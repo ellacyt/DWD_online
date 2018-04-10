@@ -1,5 +1,5 @@
-# DWD_online
-ITP SP2018 DWD online
+# DWD_online (SP2018)
 
-<b>Week 1 Assignment: </b><br>
-- placed source codes in a folder named [week1](https://github.com/ellacyt/DWD_online/tree/master/week1)
+## Week 1 Assignment: 
+-  [Source code](https://github.com/ellacyt/DWD_online/tree/master/week1)
+-  [Web](https://github.com/ellacyt/DWD_online/blob/master/week1/index.html)
